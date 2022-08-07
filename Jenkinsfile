@@ -6,6 +6,11 @@ pipeline {
     }
 
     stages {
+        stage('Git Checkout') {
+            steps {
+                git branch: 'main', credentialsId: 'github', url: 'https://github.com/edmundtetteh/Docker'
+            }
+        }
         stage('Terraform init') {
             steps {
                 sh 'terraform init'
